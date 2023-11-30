@@ -1,31 +1,30 @@
-//recupération via api
-const reponse = get('http://localhost:5678/api/works');
-const allWork = reponse.json();
+let work;
 
+// Fonction de génération des modal
+async function generatWork(work) {
+    //récupérartion du tableau des projet via API
+    const dataResponse = await fetch('http://localhost:5678/api/works');
+    work = await dataResponse.json();
+    console.log(work);
 
-function generatWork(allWok) {
-    for (let i = 0; i < allWok.length; i++) {
-        
-        const work = allWork[i];
-        //On cible l'élémént qui va recevoir l'objet crée
+    //Création des modal
+    for (let i = 0; i < work.length; i++) {
         const gallery = document.querySelector(".gallery");
-
-        //Création du conteneur
         const container = document.createElement("figure");
 
-        //Création des éléments
+        //création image
         const imgElement = document.createElement("img");
-        imgElement = work.imageUrl;
-        const titleElement = document.createElement("figcaption");
-        titleElement = work.title;
+        imgElement.src = work[i].imageUrl;
+        imgElement.alt = work[i].title;
 
+        //Création texte
+        const titleElement = document.createElement("figcaption");
+        titleElement.innerHTML = work[i].title;
 
         //Injection dans le DOM
-        gallery.appendChild(container)
-        container.appendChild(imgElement)
-        container.appendChild(titleElement)
-    }
-}
-
-
-generatWork(allWork);
+        gallery.appendChild(container);
+        container.appendChild(imgElement);
+        container.appendChild(titleElement);
+    };
+};
+generatWork(work);
