@@ -1,25 +1,25 @@
-let work;
+let project;
 
-// Fonction de génération des modal
-async function generatWork(work) {
+// Fonction de génération des cartes projet
+async function generatProjects(project) {
     //récupérartion du tableau des projet via API
     const dataResponse = await fetch('http://localhost:5678/api/works');
-    work = await dataResponse.json();
-    console.log(work);
+    project = await dataResponse.json();
+    console.log(project);
 
-    //Création des modal
-    for (let i = 0; i < work.length; i++) {
+    //Création des cartes
+    for (let i = 0; i < project.length; i++) {
         const gallery = document.querySelector(".gallery");
         const container = document.createElement("figure");
 
         //création image
         const imgElement = document.createElement("img");
-        imgElement.src = work[i].imageUrl;
-        imgElement.alt = work[i].title;
+        imgElement.src = project[i].imageUrl;
+        imgElement.alt = project[i].title;
 
         //Création texte
         const titleElement = document.createElement("figcaption");
-        titleElement.innerHTML = work[i].title;
+        titleElement.innerHTML = project[i].title;
 
         //Injection dans le DOM
         gallery.appendChild(container);
@@ -27,4 +27,4 @@ async function generatWork(work) {
         container.appendChild(titleElement);
     };
 };
-generatWork(work);
+generatProjects(project);

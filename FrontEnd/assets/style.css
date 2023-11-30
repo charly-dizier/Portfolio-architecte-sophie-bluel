@@ -137,6 +137,31 @@ li:hover {
 	width: 100%;
 
 }
+
+/****** Ajout section filtre ******/
+
+.filterContainer {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
+	gap: 10px;
+	font-family: Syne;
+	font-size: 1.1em;
+	color: #1D6154;
+}
+.filterElement {
+	display: flex;
+	align-items: center;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	padding: 9px 30px;
+}
+.filterElementActive {
+	background-color: #1D6154;
+	color: #fff;
+}
+/*********************************/
+
 #contact {
 	width: 50%;
 margin: auto;
