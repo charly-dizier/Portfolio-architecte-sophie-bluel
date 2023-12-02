@@ -155,11 +155,14 @@ li:hover {
 	border: 1px solid #1D6154;
 	border-radius: 60px;
 	padding: 9px 30px;
+	cursor: pointer;
 }
+.filterElement:hover,
 .filterElementActive {
 	background-color: #1D6154;
 	color: #fff;
 }
+
 /*********************************/
 
 #contact {
