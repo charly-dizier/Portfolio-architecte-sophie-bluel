@@ -60,12 +60,6 @@ body {
   font-size: 14px;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 50px 0;
-}
-
 section {
   margin: 50px 0;
 }
@@ -107,29 +101,33 @@ li:hover {
   color: #B1663C;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+footer nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2em;
+}
+
 #introduction {
   display: flex;
   align-items: center;
 }
-
-#introduction figure {
+#introduction figure, #introduction article {
   flex: 1;
 }
-
 #introduction img {
   display: block;
   margin: auto;
   width: 80%;
 }
-
-#introduction article {
-  flex: 1;
-}
-
 #introduction h2 {
   margin-bottom: 1em;
 }
-
 #introduction p {
   margin-bottom: 0.5em;
 }
@@ -139,19 +137,6 @@ li:hover {
   margin-bottom: 1em;
 }
 
-.gallery {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-}
-
-.gallery img {
-  width: 100%;
-}
-
-/****** Ajout section filtre ******/
 .filterContainer {
   display: flex;
   justify-content: center;
@@ -161,7 +146,6 @@ li:hover {
   font-size: 1.1em;
   color: #1D6154;
 }
-
 .filterElement {
   display: flex;
   align-items: center;
@@ -170,45 +154,47 @@ li:hover {
   padding: 9px 30px;
   cursor: pointer;
 }
-
-.filterElement:hover,
-.filterElementActive {
+.filterElement:hover, .filterElementActive {
   background-color: #1D6154;
   color: #fff;
 }
 
-/*********************************/
+.gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+.gallery img {
+  width: 100%;
+}
+
 #contact {
   width: 50%;
   margin: auto;
 }
-
 #contact > * {
   text-align: center;
 }
-
 #contact h2 {
   margin-bottom: 20px;
 }
-
 #contact form {
   text-align: left;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
 }
-
 #contact input {
   height: 50px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-
 #contact label {
   margin: 2em 0 1em 0;
 }
-
 #contact textarea {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -223,12 +209,6 @@ input[type=submit] {
   width: 180px;
   text-align: center;
   border-radius: 60px;
-}
-
-footer nav ul {
-  display: flex;
-  justify-content: flex-end;
-  margin: 2em;
 }
 
 /*# sourceMappingURL=style.css.map */
