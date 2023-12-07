@@ -1,6 +1,5 @@
 #introduction {
-	display: flex;
-	align-items: center;
+	@include flex__item-center;
 	& figure, article {
 		flex: 1;
 	}

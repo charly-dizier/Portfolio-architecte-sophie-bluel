@@ -5,23 +5,21 @@
 
 .filter {
 	&Container {
-		display: flex;
-		justify-content: center;
+		@include flex__content-center;
 		margin-bottom: 50px;
 		gap: 10px;
 		font-family: Syne;
 		font-size: 1.1em;
-		color: #1D6154;
+		color: $primaryColor;
 	}
 	&Element {
-		display: flex;
-		align-items: center;
-		border: 1px solid #1D6154;
+		@include flex__item-center;
+		border: 1px solid $primaryColor;
 		border-radius: 60px;
 		padding: 9px 30px;
 		cursor: pointer;
 		&:hover, &Active {
-			background-color: #1D6154;
+			background-color: $primaryColor;
 			color: #fff;
 		}
 	}

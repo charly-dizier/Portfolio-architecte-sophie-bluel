@@ -1,4 +1,4 @@
-#contact {
+#contact, #login {
 	width: 50%;
 	margin: auto;
 	& > *{
@@ -8,10 +8,9 @@
 		margin-bottom: 20px;
 	}
 	& form {
+		@include flex__column;
 		text-align: left;
 		margin-top:30px;
-		display: flex;
-		flex-direction: column;
 	}
 	& input {
 		height: 50px;
@@ -26,14 +25,19 @@
 		border: none;
 		box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	}
-
+	a {
+		display: flex;
+		border-bottom: 1px solid black;
+		max-width: max-content;
+		margin: auto;
+	}
 }
 
 input[type="submit"]{
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
-	background-color: #1D6154;
+	background-color: $primaryColor;
 	margin : 2em auto ;
 	width: 180px;
 	text-align: center;
