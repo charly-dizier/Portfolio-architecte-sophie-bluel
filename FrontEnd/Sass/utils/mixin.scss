@@ -13,6 +13,10 @@
     flex-direction: column;
 }
 
+@mixin dpNone {
+    display: none;
+}
+
 @mixin flex__item-center {
     @include flex;
     @include item-center;
@@ -26,4 +30,14 @@
 @mixin flex__column {
     @include flex;
     @include column;
+}
+
+@mixin dpNone__item-center {
+    @include dpNone;
+    @include item-center;
+}
+
+@mixin dpNone__content-center {
+    @include dpNone;
+    @include content-center;
 }

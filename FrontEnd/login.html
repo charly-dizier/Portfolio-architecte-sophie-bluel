@@ -12,38 +12,40 @@
     <script src="scripts/login.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-        <nav>
-            <ul>
-				<a href="index.html#portfolio"><li>projets</li></a>
-				<a href="index.html#contact"><li>contact</li></a>
-				<a href="login.html"><li>login</li></a>
-				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section id="login">
-            <h2>Log In</h2>
-            <form id="formConnection" method="post">
-                <label for="email">E-mail</label>
-                <input id="email" type="email" name="email" id="email" required>
-                <label for="password">Mot de passe</label>
-                <input id="password" type="password" name="password" id="password" required>
-                <input id="submit" type="submit" value="Se Connecter">
-            </form>
-            <a href="">Mot de passe oublié</a>
-        </section>
-    </main>
-    
-    <footer>
-		<nav>
-			<ul>
-				<li>Mentions Légales</li>
-			</ul>
-		</nav>
-	</footer>
+    <div class="main-container">
+        <header>
+            <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+            <nav class="nav">
+                <ul class="nav__container">
+                    <li class="nav__element"><a class="nav__element--link" href="index.html">projets</a></li>
+                    <li class="nav__element"><a class="nav__element--link" href="index.html#contact">contact</a></li>
+                    <li class="nav__element"><a class="nav__element--link" href="login.html">login</a></li>
+                    <li class="nav__element"><a class="nav__element--link" href="https://www.instagram.com/" target="_blank"><img src="./assets/icons/instagram.png" alt="Instagram"></a></li>
+                </ul>
+            </nav>
+        </header>
+            
+        <main>
+            <section id="login">
+                <h2>Log In</h2>
+                <form id="formConnection" method="post">
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" name="email" id="email" required>
+                    <label for="password">Mot de passe</label>
+                    <input id="password" type="password" name="password" id="password" required>
+                    <input id="submit" type="submit" value="Se Connecter">
+                </form>
+                <a href="">Mot de passe oublié</a>
+            </section>
+        </main>
+            
+        <footer>
+            <nav>
+                <ul>
+                    <li>Mentions Légales</li>
+                </ul>
+            </nav>
+        </footer>        
+    </div>
 </body>
 </html>

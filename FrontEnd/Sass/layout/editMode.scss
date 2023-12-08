@@ -1,0 +1,28 @@
+.editBanner {
+    @include dpNone__content-center;
+    height: 60px;
+    background-color: black;
+    &__container {
+        @include flex__item-center;
+        gap: 12px;
+    }
+    &__icon {
+        size: 15.5px;
+        color: white;
+    }
+    &__txt {
+        font-family: Work sans;
+        color: white;
+    }
+}
+
+.editProject {
+    @include dpNone__item-center;
+    gap: 10px;
+    &--icon {
+        font-size: 15.58px;
+    }
+    &__txt {
+        font-size: 14px;
+    }
+}

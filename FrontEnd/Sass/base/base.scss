@@ -49,7 +49,7 @@ table {
 }
 
 /** end reset css**/
-body {
+.main-container {
 	max-width: 1140px;
 	margin:auto;
 	font-family: 'Work Sans' ;
@@ -75,19 +75,4 @@ h2{
 	font-weight: 700;
 	font-size: 30px;
 	color: $primaryColor;
-}
-nav ul {
-	@include flex__item-center;
-	list-style-type: none;
-}
-nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
-}
-li:hover {
-	color: $secondaryColor;
-}
-a {
-	text-decoration: none;
-	color: black;
 }
