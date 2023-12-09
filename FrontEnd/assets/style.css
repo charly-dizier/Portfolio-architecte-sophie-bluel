@@ -87,6 +87,127 @@ h2 {
   color: #1D6154;
 }
 
+#contact, #login {
+  width: 50%;
+  margin: auto;
+}
+#contact > *, #login > * {
+  text-align: center;
+}
+#contact h2, #login h2 {
+  margin-bottom: 20px;
+}
+#contact form, #login form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
+}
+#contact input, #login input {
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact label, #login label {
+  margin: 2em 0 1em 0;
+}
+#contact textarea, #login textarea {
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact a, #login a {
+  display: flex;
+  border-bottom: 1px solid black;
+  max-width: max-content;
+  margin: auto;
+}
+
+input[type=submit] {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+}
+
+.modal__main {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.modal__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+.modal__card {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 40%;
+  height: 688px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.modal__card--iconCross {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  font-size: 24px;
+}
+.modal__card--iconArrow {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  cursor: pointer;
+  font-size: 21px;
+}
+.modal__card--title {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 70px;
+  font-family: Work Sans;
+  font-size: 26px;
+}
+.modal__card--elementProject {
+  display: flex;
+}
+.modal__card--underline {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 120px;
+  width: 420px;
+  border: 1px solid #B3B3B3;
+}
+.modal__card--btn {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 45px;
+  font-family: Syne;
+  font-size: 14px;
+  color: #fff;
+  background-color: #1D6154;
+  border-radius: 60px;
+  padding: 10px 50px;
+  cursor: pointer;
+}
+
+#modalAddPicture {
+  display: none;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -139,6 +260,7 @@ footer nav ul {
 .editProject {
   display: none;
   align-items: center;
+  cursor: pointer;
   gap: 10px;
 }
 .editProject--icon {
@@ -211,53 +333,6 @@ footer nav ul {
 }
 .gallery img {
   width: 100%;
-}
-
-#contact, #login {
-  width: 50%;
-  margin: auto;
-}
-#contact > *, #login > * {
-  text-align: center;
-}
-#contact h2, #login h2 {
-  margin-bottom: 20px;
-}
-#contact form, #login form {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-top: 30px;
-}
-#contact input, #login input {
-  height: 50px;
-  font-size: 1.2em;
-  border: none;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-#contact label, #login label {
-  margin: 2em 0 1em 0;
-}
-#contact textarea, #login textarea {
-  border: none;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-#contact a, #login a {
-  display: flex;
-  border-bottom: 1px solid black;
-  max-width: max-content;
-  margin: auto;
-}
-
-input[type=submit] {
-  font-family: "Syne";
-  font-weight: 700;
-  color: white;
-  background-color: #1D6154;
-  margin: 2em auto;
-  width: 180px;
-  text-align: center;
-  border-radius: 60px;
 }
 
 /*# sourceMappingURL=style.css.map */

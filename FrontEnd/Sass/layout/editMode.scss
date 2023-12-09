@@ -18,6 +18,7 @@
 
 .editProject {
     @include dpNone__item-center;
+    cursor: pointer;
     gap: 10px;
     &--icon {
         font-size: 15.58px;

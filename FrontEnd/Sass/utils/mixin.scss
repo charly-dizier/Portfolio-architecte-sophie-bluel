@@ -41,3 +41,9 @@
     @include dpNone;
     @include content-center;
 }
+
+@mixin posAbs-center {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

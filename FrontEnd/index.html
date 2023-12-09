@@ -14,15 +14,43 @@
 
 	<script src="scripts/generatedProjects&Filter.js" defer></script>
 	<script src="scripts/displayEditMode.js" defer></script>
+	<script src="scripts/modalBaseContainer.js" defer></script>
 </head>
 <body>
-
+	<!--Mode édition-->
 	<div class="editBanner">
 		<div class="editBanner__container">
 			<i class="fa-regular fa-pen-to-square editBanner__icon"></i>
 			<p class="editBanner__txt">Mod édition</p>
 		</div>
 	</div>
+
+	<!--Modal cacher de base-->
+	<div class="modal__main">
+		<div class="modal__overlay"></div>
+
+		<!--Modal Gallerie-->
+		<div id="modalGalery" class="modal__card">
+			<i class="fa-solid fa-xmark modal__card--iconCross"></i>
+			<h3 class="modal__card--title">Galerie photo</h3>
+			<div class="modal__card--elementProject">
+				<!--On injectera nos projects via JS ici-->
+			</div>
+			<hr class="modal__card--underline">
+			<p id="btnAddPicture" class="modal__card--btn">Ajouter une photo</p>
+		</div>
+
+		<div id="modalAddPicture" class="modal__card">
+			<i id="addPictureLeftArrow" class="fa-solid fa-arrow-left modal__card--iconArrow"></i>
+			<i class="fa-solid fa-xmark modal__card--iconCross"></i>
+			<h3 class="modal__card--title">Ajout photo</h3>
+
+			<hr class="modal__card--underline">
+			<p class="modal__card--btn">Valider</p>
+		</div>
+		<!--Modal add-->
+	</div>
+
 
 	<div class="main-container">
 		<header>
@@ -91,6 +119,6 @@
 				</ul>
 			</nav>
 		</footer>
-	</main>	
+	</div>	
 </body>
 </html>
