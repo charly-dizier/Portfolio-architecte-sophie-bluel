@@ -23,13 +23,13 @@ const btnAddPicture = document.getElementById("btnAddPicture");
 btnAddPicture.addEventListener("click", () => {
     modalGalery.style.display = "none";
     modalAddPicture.style.display = "block";
-})
+});
 //Retour au mode galery par click sur fleche précédente
-const addPictureLeftArrow = document.getElementById("addPictureLeftArrow");
+const addPictureLeftArrow = document.querySelector(".modal__card--iconArrow");
 addPictureLeftArrow.addEventListener("click", () => {
     modalAddPicture.style.display = "none";
     modalGalery.style.display = "block";
-})
+});
 
 
 ////////////////////////////////////////////////////////////////////////////////////

@@ -14,7 +14,8 @@
 
 	<script src="scripts/generatedProjects&Filter.js" defer></script>
 	<script src="scripts/displayEditMode.js" defer></script>
-	<script src="scripts/modalBaseContainer.js" defer></script>
+	<script src="scripts/modalBase.js" defer></script>
+	<script src="scripts/modalGalery.js" defer></script>
 </head>
 <body>
 	<!--Mode édition-->
@@ -26,7 +27,7 @@
 	</div>
 
 	<!--Modal cacher de base-->
-	<div class="modal__main">
+	<aside class="modal__main">
 		<div class="modal__overlay"></div>
 
 		<!--Modal Gallerie-->
@@ -40,16 +41,32 @@
 			<p id="btnAddPicture" class="modal__card--btn">Ajouter une photo</p>
 		</div>
 
+		<!--Modal Ajout d'image-->
 		<div id="modalAddPicture" class="modal__card">
-			<i id="addPictureLeftArrow" class="fa-solid fa-arrow-left modal__card--iconArrow"></i>
+			<i class="fa-solid fa-arrow-left modal__card--iconArrow"></i>
 			<i class="fa-solid fa-xmark modal__card--iconCross"></i>
 			<h3 class="modal__card--title">Ajout photo</h3>
 
+			<!--contenue modal ici-->
+			<form class="formAddPicture">
+				<div>
+					<!--ne s'affiche que lorsqu'une image est ajouté dans input file-->
+					<img src="#" alt="">
+					<i class="fa-solid fa-image"></i>
+					<label class="">
+						<p>+ Ajouter photo</p>
+						<input type="file" accept=".jpg, .jpeg, .png">
+
+					</label>
+					<p>jpg, png : 4mo max</p>
+				</div>
+
+			</form>
+			
 			<hr class="modal__card--underline">
 			<p class="modal__card--btn">Valider</p>
 		</div>
-		<!--Modal add-->
-	</div>
+	</aside>
 
 
 	<div class="main-container">

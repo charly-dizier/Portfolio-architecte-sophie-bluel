@@ -151,9 +151,9 @@ input[type=submit] {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  top: 50%;
+  top: 60%;
   width: 40%;
-  height: 688px;
+  height: fit-content;
   border-radius: 10px;
   background-color: #fff;
 }
@@ -172,40 +172,70 @@ input[type=submit] {
   font-size: 21px;
 }
 .modal__card--title {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 70px;
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
   font-family: Work Sans;
   font-size: 26px;
 }
 .modal__card--elementProject {
-  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: fit-content;
+  width: 420px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 25px;
+  margin-top: 45px;
+  margin-bottom: 67px;
+}
+.modal__card--elementProject img {
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal__card--elementProject-icon {
+  position: absolute;
+  background-color: black;
+  border-radius: 2px;
+  color: #fff;
+  top: 10px;
+  right: 10px;
+  padding: 4px;
+  font-size: 10px;
+  cursor: pointer;
 }
 .modal__card--underline {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-bottom: 35px;
   bottom: 120px;
   width: 420px;
   border: 1px solid #B3B3B3;
 }
 .modal__card--btn {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  bottom: 45px;
+  margin: auto;
+  width: fit-content;
   font-family: Syne;
   font-size: 14px;
   color: #fff;
   background-color: #1D6154;
   border-radius: 60px;
   padding: 10px 50px;
+  margin-bottom: 55px;
   cursor: pointer;
 }
 
 #modalAddPicture {
   display: none;
+}
+
+.test {
+  position: relative;
+  width: 78px;
+  height: 105px;
+  margin: 0;
 }
 
 header {
