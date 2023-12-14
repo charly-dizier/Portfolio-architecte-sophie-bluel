@@ -36,13 +36,16 @@ fetch('http://localhost:5678/api/works')
 	deleteIcons.forEach(deleteIcon => {
         //On écoute l'evenement click
 		deleteIcon.addEventListener('click', () => {
-            //On récupère la valeur de l'attribut "data-projectId" contenue dans l'élément HTML
-			const projectId = deleteIcon.dataset.projectId;
-            //On communique avec l'API pour supprimer le projet lié à l'icon écouté
-            fetch(`http://localhost:5678/api/works/${projectId}`, {
-                method: "DELETE",
-                headers: {'Authorization': `Bearer ${token}`}
-            }); 
-		});
-	});
-});
+            //Message de confirmation de suppression
+            if (confirm("Voulez vous vraiment supprimer le projet ?") == true) {
+                //On récupère la valeur de l'attribut "data-projectId" contenue dans l'élément HTML
+                const projectId = deleteIcon.dataset.projectId;
+                //On communique avec l'API pour supprimer le projet lié à l'icon écouté
+                fetch(`http://localhost:5678/api/works/${projectId}`, {
+                    method: "DELETE",
+                    headers: {'Authorization': `Bearer ${token}`}, 
+                })
+            }
+		})
+	})
+})
