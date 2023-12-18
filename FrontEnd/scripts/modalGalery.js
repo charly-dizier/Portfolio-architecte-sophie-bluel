@@ -20,13 +20,15 @@ fetch('http://localhost:5678/api/works')
         //Création de l'icon corbeille, ajout css et nommage data
         const trashIcon = document.createElement("i");
         trashIcon.classList.add("fa-solid", "fa-trash-can", "modal__card--elementProject-icon");
-        //Important on définit l'attribut "data-projectId" à l'élément HTML et on lui assigne la valeur project.id'
+        //Important, on copie la valeur de "project.id" à l'interieur de l'attribut "data-project" et on l'assigne a l'élémént HTML
         trashIcon.dataset.projectId = project.id;
-
+        
+        console.log(trashIcon);
         //On injecte le tout dans le DOM
         figure.appendChild(image)
         figure.appendChild(trashIcon)
         galery.appendChild(figure)
+        
     });
 
     ///////////////////////////////////

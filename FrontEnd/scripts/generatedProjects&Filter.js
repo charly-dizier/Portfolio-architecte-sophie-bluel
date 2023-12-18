@@ -31,6 +31,7 @@ async function displayCardProject(projects) {
     const dataResponse = await fetch('http://localhost:5678/api/works');
     //On converti le retour en tableau d'objets json
     projects = await dataResponse.json();
+    console.log(projects);
 
     //Appel de la fonction pour afficher toutes les cartes au chargement de la page
     creationCardProject(projects);

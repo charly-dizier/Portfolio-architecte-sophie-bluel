@@ -3,7 +3,7 @@ const modalMod = document.querySelector(".modal__main");
 //On cible le mode Galery
 const modalGalery = document.getElementById("modalGalery");
 //On cible le mode Ajout d'image
-const modalAddPicture = document.getElementById("modalAddPicture");
+const modalAddProject = document.getElementById("modalAddProject");
 
 
 //////////////////////////////////////
@@ -17,17 +17,29 @@ btnEditProject.addEventListener("click", () => {
 
 
 //////////////////////////////////////////////////////////////
-//Gestion du switch entre le mode Galery et le mode AddPicture
+//Gestion du switch entre le mode Galery et le mode AddProject
 //Passage au mode ajout d'image par click sur bouton
-const btnAddPicture = document.getElementById("btnAddPicture");
-btnAddPicture.addEventListener("click", () => {
+const btnAddProject = document.getElementById("btnAddProject");
+btnAddProject.addEventListener("click", () => { 
     modalGalery.style.display = "none";
-    modalAddPicture.style.display = "block";
+    modalAddProject.style.display = "block";
+    //réinitialisation du formulaire et l'affichage 
+    inputFile.value = "";
+    inputTitle.value = "";
+    inputCategory.value = "";
+    btnSubmit.setAttribute('disabled', '');
+    btnSubmit.classList.remove("active")
+    displayImg.src = "";
+    displayIcon.style.display = "block";
+    displayBtnFile.style.display = "flex";
+    displayTxt.style.display = "block";
+    displayImg.alt = "";
+
 });
 //Retour au mode galery par click sur fleche précédente
-const addPictureLeftArrow = document.querySelector(".modal__card--iconArrow");
-addPictureLeftArrow.addEventListener("click", () => {
-    modalAddPicture.style.display = "none";
+const AddProjectLeftArrow = document.querySelector(".modal__card--iconArrow");
+AddProjectLeftArrow.addEventListener("click", () => {
+    modalAddProject.style.display = "none";
     modalGalery.style.display = "block";
 });
 
@@ -38,7 +50,7 @@ const iconCloseModalMod = document.querySelectorAll(".modal__card--iconCross");
 iconCloseModalMod.forEach((icon) => {
     icon.addEventListener("click", () => {
         modalMod.style.display = "none";
-        modalAddPicture.style.display = "none";
+        modalAddProject.style.display = "none";
         modalGalery.style.display = "block";
     });
 });
@@ -46,6 +58,6 @@ iconCloseModalMod.forEach((icon) => {
 const overlayModalMod = document.querySelector(".modal__overlay");
 overlayModalMod.addEventListener("click", () => {
     modalMod.style.display = "none";
-    modalAddPicture.style.display = "none";
+    modalAddProject.style.display = "none";
     modalGalery.style.display = "block";
 });

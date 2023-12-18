@@ -16,6 +16,7 @@
 	<script src="scripts/displayEditMode.js" defer></script>
 	<script src="scripts/modalBase.js" defer></script>
 	<script src="scripts/modalGalery.js" defer></script>
+	<script src="scripts/modalAddProject.js" defer></script>
 </head>
 <body>
 	<!--Mode édition-->
@@ -38,33 +39,43 @@
 				<!--On injectera nos projects via JS ici-->
 			</div>
 			<hr class="modal__card--underline">
-			<p id="btnAddPicture" class="modal__card--btn">Ajouter une photo</p>
+			<p id="btnAddProject" class="modal__card--btn">Ajouter une photo</p>
 		</div>
 
 		<!--Modal Ajout d'image-->
-		<div id="modalAddPicture" class="modal__card">
+		<div id="modalAddProject" class="modal__card">
 			<i class="fa-solid fa-arrow-left modal__card--iconArrow"></i>
 			<i class="fa-solid fa-xmark modal__card--iconCross"></i>
 			<h3 class="modal__card--title">Ajout photo</h3>
 
-			<!--contenue modal ici-->
-			<form class="formAddPicture">
-				<div>
+			<form class="modal__form" enctype="multipart/form-data" method="post" name="formAddProject">
+				<div class="modal__form__imgBlock">
 					<!--ne s'affiche que lorsqu'une image est ajouté dans input file-->
-					<img src="#" alt="">
-					<i class="fa-solid fa-image"></i>
-					<label class="">
-						<p>+ Ajouter photo</p>
-						<input type="file" accept=".jpg, .jpeg, .png">
-
+					<img class="modal__form__imgBlock--img" src="#" alt="Image du projet en cours d'ajout">
+					<i class="fa-solid fa-image modal__form__imgBlock--icon"></i>
+					<label class="modal__form__imgBlock--labelFile">
+						<input class="modal__form__imgBlock--inputFile" type="file" accept=".jpg, .jpeg, .png" name="image">
+						<span class="modal__form__imgBlock--btnFile">+ Ajouter photo</span>
 					</label>
-					<p>jpg, png : 4mo max</p>
+					<p class="modal__form__imgBlock--txt">jpg, png : 4mo max</p>
 				</div>
 
-			</form>
+				<div class="modal__form__titleBlock">
+					<label class="modal__form__titleBlock--label">Title</label>
+					<input class="modal__form__titleBlock--input" type="text" name="title" required>
+				</div>
 			
-			<hr class="modal__card--underline">
-			<p class="modal__card--btn">Valider</p>
+				<div class="modal__form__categoryBlock">
+					<label class="modal__form__categoryBlock--label" for="category">Catégories</label>
+					<select class="modal__form__categoryBlock--select" name="category" id="category">
+						<!--Ajout dynamique des option via js-->
+					</select>
+				</div>
+
+				<hr class="modal__card--underline">
+				
+				<input type="submit" class="modal__form--btnSubmit" id="btnSubmitAddProject" value="Valider">
+			</form>
 		</div>
 	</aside>
 

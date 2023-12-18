@@ -122,8 +122,7 @@ h2 {
   max-width: max-content;
   margin: auto;
 }
-
-input[type=submit] {
+#contact input[type=submit], #login input[type=submit] {
   font-family: "Syne";
   font-weight: 700;
   color: white;
@@ -227,7 +226,7 @@ input[type=submit] {
   cursor: pointer;
 }
 
-#modalAddPicture {
+#modalAddProject {
   display: none;
 }
 
@@ -236,6 +235,127 @@ input[type=submit] {
   width: 78px;
   height: 105px;
   margin: 0;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 420px;
+  margin: auto;
+}
+.modal__form__imgBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3px;
+  background-color: #E8F1F6;
+  width: 100%;
+  margin-top: 36px;
+}
+.modal__form__imgBlock--img {
+  display: none;
+  max-width: 420px;
+  height: auto;
+}
+.modal__form__imgBlock--icon {
+  font-size: 76px;
+  color: #B9C5CC;
+  margin: 22px 0 15px 0;
+}
+.modal__form__imgBlock--btnFile {
+  display: flex;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 500;
+  color: #306685;
+  align-items: center;
+  justify-content: center;
+  width: 173px;
+  height: 36px;
+  border-radius: 50px;
+  background-color: #CBD6DC;
+  margin: auto;
+  cursor: pointer;
+}
+.modal__form__imgBlock--inputFile {
+  display: none;
+}
+.modal__form__imgBlock--txt {
+  font-family: Work Sans;
+  font-size: 10px;
+  font-weight: 400;
+  color: #444444;
+  margin: 7px 0 19px 0;
+}
+.modal__form__titleBlock {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.modal__form__titleBlock--label {
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3D3D3D;
+  margin-bottom: 10px;
+}
+.modal__form__titleBlock--input {
+  height: 51px;
+  border: none;
+  background: #FFF;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 400;
+  color: #444;
+  padding: 0 16px;
+}
+.modal__form__categoryBlock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 21px;
+}
+.modal__form__categoryBlock--label {
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3D3D3D;
+  margin-bottom: 10px;
+}
+.modal__form__categoryBlock--select {
+  height: 51px;
+  border: none;
+  background: #FFF;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 400;
+  color: #444;
+  padding: 0 16px;
+  margin-bottom: 47px;
+  padding-left: 20px;
+}
+.modal__form__categoryBlock--option {
+  background-color: aqua;
+}
+.modal__form--btnSubmit {
+  border: none;
+  width: 237px;
+  height: 36px;
+  border-radius: 60px;
+  margin-bottom: 55px;
+  color: #FFF;
+  font-family: Syne;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #a7a7a7;
+  cursor: pointer;
+}
+.modal__form--btnSubmit.active {
+  background-color: #1D6154;
 }
 
 header {
@@ -279,7 +399,7 @@ footer nav ul {
   gap: 12px;
 }
 .editBanner__icon {
-  size: 15.5px;
+  font-size: 15.5px;
   color: white;
 }
 .editBanner__txt {
