@@ -10,22 +10,40 @@ const displayEditBanner = document.querySelector(".editBanner");
 const displayEditProject = document.querySelector(".editProject");
 const displayFilter = document.querySelector(".filterContainer");
 
-//Si le token est présent dans le localStorage. On affiche ou cache les éléments
-if (token !== null) {
+//////////////////////////////////////////////////////////////////
+//Fonction pour afficher et cache les éléments liés à la connexion
+function showLoggedInElements() {
     btnLogin.style.display = "none";
     btnLogout.style.display = "block";
-
     displayEditBanner.style.display = "flex";
     displayEditProject.style.display = "flex";
     displayFilter.style.display = "none";
-
-//Si le token n'est pas présent dans le localStorage. On affiche ou cache les éléments
-} else {
+}
+/////////////////////////////////////////////////////////////////////
+//Fonction pour afficher et cache les éléments liés à la déconnexion
+function showLoggedOutElements() {
     btnLogin.style.display = "block";
     btnLogout.style.display = "none";
+    displayEditBanner.style.display = "none";
+    displayEditProject.style.display = "none";
+    displayFilter.style.display = "flex";
 }
 
-//Au click sur le logout, on enlève le token du localStorage
+/////////////////////////////////////////////////
+//Si le token est présent dans le localStorage...
+if (token !== null) {
+    //On lance la fonction liés à la connexion
+    showLoggedInElements();
+//Sinon...
+} else {
+    //On lance la fonction liés a la déconnexion
+    showLoggedOutElements();
+}
+
+//On écoute le bouton et au click...
 btnLogout.addEventListener("click", () => {
+    //On retire le token du local storage
     localStorage.removeItem("token");
+    //On lance la fonction liés a la déconnexion
+    showLoggedOutElements();
 });
