@@ -16,14 +16,13 @@ async function creationModalProject() {
         for (let i = 0; i < dataProject.length; i++) {
             //Création du conteneur et ajout css
             const figure = document.createElement("figure");
-            figure.classList.add("test");
             //Création de l'image et ajout src alt
             const image = document.createElement("img");
             image.src = dataProject[i].imageUrl;
             image.alt = dataProject[i].title;
             //Création de l'icon corbeille, ajout css et nommage data
             const trashIcon = document.createElement("i");
-            trashIcon.classList.add("fa-solid", "fa-trash-can", "modal__card--elementProject-icon");
+            trashIcon.classList.add("fa-solid", "fa-trash-can");
             //Important! on copie la valeur "id" du tableau dataProjet et on l'assigne a l'élément HTML sous la forme d'un attribut data-projectID
             trashIcon.dataset.projectId = dataProject[i].id;
             //On injecte le tout dans le DOM
@@ -32,7 +31,7 @@ async function creationModalProject() {
             modalGalery.appendChild(figure)
         }
         //On cible toutes les icons corbeilles
-        const deleteIcons = document.querySelectorAll(".modal__card--elementProject-icon");
+        const deleteIcons = document.querySelectorAll(".fa-trash-can");
         //On parcour le tableau deleteIcon et pour chaque éléments...
         for (let i = 0; i < deleteIcons.length; i++) {
             //On écoute le click et lance la fonction de confirmation

@@ -32,6 +32,11 @@
     @include column;
 }
 
+@mixin flex__column__item-center {
+    @include flex__column;
+    @include item-center;
+}
+
 @mixin dpNone__item-center {
     @include dpNone;
     @include item-center;
