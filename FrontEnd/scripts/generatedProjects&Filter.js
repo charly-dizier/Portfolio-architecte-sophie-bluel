@@ -1,7 +1,3 @@
-//On determine l'URL de la section "works" de l'API
-const WORKS_API_URL = "http://localhost:5678/api/works";
-//On détermine l'URL de la section "categories" de l'API
-const CATEGORIES_API_URL = "http://localhost:5678/api/categories";
 //On cible la gallerie
 const gallery = document.querySelector(".gallery");
 
@@ -67,6 +63,7 @@ async function displayAllProjects() {
     });
 }
 
+/////////////////////////////////////////////////////////////
 //Fonction d'affichage des projets d'une catégorie spécifique
 async function displayProjectsByCategory(categoryId) {
     //On récupère les données de la section "work" de l'API a l'intérieur de la variable "projects"
@@ -89,6 +86,19 @@ async function displayProjectsByCategory(categoryId) {
         gallery.appendChild(card);
     });
 }
+
+////////////////////////////////////////////////////
+//Fonction de retrait de la couleur des filtres actif
+function removeFilterElementActive() {
+    //On cible tous les filtres
+    const filters = document.querySelectorAll(".filterElement");
+    //Pour chaque filtre on...
+    filters.forEach(filter => {
+        //Retire la class css quia joute un background vert
+        filter.classList.remove("filterElementActive"); 
+    });
+}
+
 
 ///////////////////////////////////////////////////////////////////
 //Fonction principal d'affichage des projets et gestion des filtres
@@ -137,18 +147,6 @@ async function displayCardProject() {
         });
         //On inject les filtres dans le conteneur
         filterContainer.appendChild(newFilter);
-    });
-}
-
-////////////////////////////////////////////////////
-//Fonction de retrait de la couleur des filtres actif
-function removeFilterElementActive() {
-    //On cible tous les filtres
-    const filters = document.querySelectorAll(".filterElement");
-    //Pour chaque filtre on...
-    filters.forEach(filter => {
-        //Retire la class css quia joute un background vert
-        filter.classList.remove("filterElementActive");
     });
 }
 

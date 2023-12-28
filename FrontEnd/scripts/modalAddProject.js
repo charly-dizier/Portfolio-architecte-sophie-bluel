@@ -13,55 +13,10 @@ const inputTitle = document.querySelector(".modal__form__titleBlock--input");
 const inputCategory = document.querySelector(".modal__form__categoryBlock--select");
 const btnSubmit = document.querySelector(".modal__form--btnSubmit");
 
-////////////////////////////
-//Fonction d'ajout de projet
-async function addProject() {
-    //Gestion des erreur
-    try {
-        //Création d'un objet FormData
-        const formData = new FormData();
-        //On définit le contenue de l'input file comme étant "image"
-        formData.append("image", inputFile.files[0]);
-        //On définit la valeur de l'input title comme étant "title"
-        formData.append("title", inputTitle.value);
-        //On définit la valeur de l'input category comme étant "category"
-        formData.append("category", inputCategory.value);
 
-        const response = await fetch("http://localhost:5678/api/works", {
-            method: "POST",
-            headers: {Authorization: `Bearer ${token}`},
-            body: formData,
-        });
-        
-        if (response.ok) {
-            closeModal();
-            resetGalery();
-            resetModalGalery();
-        } else {
-            console.log("La requête a échoué. Error statut :", response.status);
-        }
-    //Récupération des erreur
-    } catch (error) {
-        console.log("Une erreur s'est produite :", error);
-    }
-}
-
-//////////////////////////////////
-//On écoute l'envoie du formulaire
-formAddProject.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    if (validateFields()) {
-        if (confirm("Etes vous sur de vouloir ajouter ce projet ?")) {
-            await addProject();
-        }
-    } else {
-        alert("Veuillez remplir touts les champs");
-    }
-});
-
-function validateFields() {
-    return inputFile.files.length > 0 && inputTitle.value !== "" && inputCategory.value !== "";
-}
+////////////////////////
+//Gestion visuel du form
+////////////////////////
 
 /////////////////////////////////////////////////
 //Gestion d'affichage de l'image du futur project
@@ -74,7 +29,7 @@ inputFile.addEventListener("change", (event) => {
     //On vérifie s'il fait plus de 4Mo
     if (file.size > 4194304) {
         //Si oui, message d'erreur
-        alert("Fichier trop volumineux: 4mo max");
+        alert("Fichier trop volumineux : 4mo max");
         //On réinitialise le champ
         inputFile.value = "";
     //Sinon
@@ -101,7 +56,7 @@ inputFile.addEventListener("change", (event) => {
 /////////////////////////////////////
 //Création des options de catégorries
 //On récupère les données de l'API
-fetch("http://localhost:5678/api/categories")
+fetch(CATEGORIES_API_URL)
     .then((response) => response.json())
     .then((data) => {
         //On lance une boucle pour chaque élément
@@ -120,7 +75,7 @@ fetch("http://localhost:5678/api/categories")
 /////////////////////////////////////////
 //Gestion d'affichage du bouton d'envoie
 function activeBtnSubmit() {
-    //La variable appelle la fonction
+    //Variable qui appelle la fonction de vérification de remplissage des champs
     const isValid = validateFields();
     //Le bouton est désactiver tant que isValid ne renvoie la valeur "true"
     btnSubmit.disabled = !isValid;
@@ -132,3 +87,70 @@ function activeBtnSubmit() {
 inputFile.addEventListener("input", activeBtnSubmit);
 inputTitle.addEventListener("input", activeBtnSubmit);
 inputCategory.addEventListener("input", activeBtnSubmit);
+
+
+//////////////////////////
+//Gestion d'envoie du form
+//////////////////////////
+
+////////////////////////////
+//Fonction d'ajout de projet
+async function addProject() {
+    //Gestion des erreur
+    try {
+        //Création d'un objet FormData
+        const formData = new FormData();
+        //On définit le contenue de l'input file comme étant "image"
+        formData.append("image", inputFile.files[0]);
+        //On définit la valeur de l'input title comme étant "title"
+        formData.append("title", inputTitle.value);
+        //On définit la valeur de l'input category comme étant "category"
+        formData.append("category", inputCategory.value);
+
+        //On appel l'API avec la méthode "POST"
+        const response = await fetch(WORKS_API_URL, {
+            method: "POST",
+            headers: {Authorization: `Bearer ${token}`},
+            body: formData,
+        });
+        //Si la réponse est positive (status 200) ...
+        if (response.ok) {
+            //On ferme la modal
+            closeModal();
+            //On reset la gallerie
+            resetGalery();
+            //On reset la gallerie de la modal
+            resetModalGalery();
+        //Sinon... gestion des erreurs
+        } else {
+            console.log("La requête a échoué. Error statut :", response.status);
+        }
+    //Récupération des erreur
+    } catch (error) {
+        console.error("Une erreur s'est produite :", error);
+    }
+}
+
+//////////////////////////////////
+//On écoute l'envoie du formulaire
+formAddProject.addEventListener("submit", async (event) => {
+    //On empeche le comportement par défaut de submit
+    event.preventDefault();
+    //Si les champs sont remplie...
+    if (validateFields()) {
+        //Si on comfirme vouloir ajouter le projet
+        if (confirm("Etes vous sur de vouloir ajouter ce projet ?")) {
+            //On lance la fonction d'ajout de projet 
+            await addProject();
+        }
+    //Si les champs ne sont pas remplie...
+    } else {
+        alert("Veuillez remplir touts les champs");
+    }
+});
+
+//////////////////////////////////////////////////////////////
+//Fonction qui retourne que les champ du formulaire sont remplie
+function validateFields() {
+    return inputFile.files.length > 0 && inputTitle.value !== "" && inputCategory.value !== "";
+}

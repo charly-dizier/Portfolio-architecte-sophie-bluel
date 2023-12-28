@@ -17,27 +17,35 @@ const iconCloseModalMod = document.querySelectorAll(".modal__card--iconCross");
 const overlayModalMod = document.querySelector(".modal__overlay");
 
 
-//////////////////////////////////////
+///////////////////////////////////
 //Ecoute des différents évenements
+//////////////////////////////////
+
 //Ouverture générale modal
 btnEditProject.addEventListener("click", showModal);
+
+//Fermeture par click sur l'overlay autour de la modal
+overlayModalMod.addEventListener("click", closeModal);
+
+//Retour modal gallerie
+AddProjectLeftArrow.addEventListener("click", openModalGalery);
+
 //Switch vers modal ajout d'image
 btnAddProject.addEventListener("click", () => { 
     openModaAddProject();
     resetForm();
 });
-//Retour modal gallerie
-AddProjectLeftArrow.addEventListener("click", openModalGalery);
+
 //Fermeture par icon
 iconCloseModalMod.forEach((icon) => {
     icon.addEventListener("click", closeModal);
 });
-//Fermeture par click sur l'overlay autour de la modal
-overlayModalMod.addEventListener("click", closeModal);
 
 
 ///////////////////////////////////////////////
 //Fonction outils ouverture, fermeture et reset
+///////////////////////////////////////////////
+
 function showModal() {
     modalMod.style.display = "block";
 }

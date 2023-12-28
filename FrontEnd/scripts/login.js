@@ -22,7 +22,7 @@ formConnection.addEventListener("submit", async (event) => {
     //Gestion des erreur
     try {
         //On intéroge l'API avec une requête POST pour l'anthentification
-        const response = await fetch("http://localhost:5678/api/users/login", {
+        const response = await fetch(LOGIN_API_URL, {
             method: "POST",
             //On détermine le format de la charge utile
             headers: {"Content-Type": "application/json"},
@@ -30,7 +30,7 @@ formConnection.addEventListener("submit", async (event) => {
             body: JSON.stringify({email: loginEmail, password: loginPassword}),
         });
 
-        //Vérificvation de la réussite de la requête
+        //Vérification de la réussite de la requête
         if (!response.ok) {
             //Si la réponse n'est pas positive (status autre que 200), gestion de l'erreur avec message
             throw new Error("Erreur dans l’identifiant ou le mot de passe.")
@@ -45,6 +45,6 @@ formConnection.addEventListener("submit", async (event) => {
 
     //Récupération des erreur
     } catch (error) {
-        alert(error.message || "Une erreur s'est produite lors de la connexion.")
+        alert(error.message)
     }
 });
