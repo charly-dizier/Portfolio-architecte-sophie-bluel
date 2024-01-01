@@ -13,7 +13,7 @@ async function fetchData(url) {
             //On renvoie un erreur avec un message
             throw new Error("Une erreur est survenue lors de la récupération des données.");
         }
-        //On retourne la réponse sous form d'objet json
+        //On retourne la réponse
         return await response.json();
     //Récupération des erreur    
     } catch (error) {

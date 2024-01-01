@@ -53,14 +53,17 @@ inputFile.addEventListener("change", (event) => {
     }
 });
 
-/////////////////////////////////////
-//Création des options de catégorries
-//On récupère les données de l'API
-fetch(CATEGORIES_API_URL)
-    .then((response) => response.json())
-    .then((data) => {
+/////////////////////////////////////////////
+//Fonction de création des choix de catégorie
+async function fetchDataCategory() {
+    //Gestion des erreurs
+    try {
+        //On intéroge l'API catégories et on stock la réponse dans une variable "dataCategory"
+        const response = await fetch(CATEGORIES_API_URL);
+        const dataCategory = await response.json();
+
         //On lance une boucle pour chaque élément
-        data.forEach((category) => {
+        dataCategory.forEach((category) => {
             //Création des balise option
             const option = document.createElement("option");
             //On leur assigne la valeur id
@@ -70,7 +73,13 @@ fetch(CATEGORIES_API_URL)
             //On injecte dans le DOM
             inputCategory.appendChild(option);
         });
-    });
+    //Récupération des erreurs
+    } catch (error) {
+        console.error("Une erreur est survenue :", error)
+    }
+};
+//Appel de la fonction
+fetchDataCategory()
 
 /////////////////////////////////////////
 //Gestion d'affichage du bouton d'envoie

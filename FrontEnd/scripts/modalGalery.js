@@ -8,7 +8,7 @@ async function creationModalProject() {
     try {
         //On réinitialise la gallerie
         modalGalery.innerHTML = "";
-        //On intéroge l'API et on stock la réponse dans une variable dataProject sous la forme d'objet json
+        //On intéroge l'API et on stock la réponse dans une variable "dataProject"
         const response = await fetch(WORKS_API_URL)
         const dataProject = await response.json();
 
