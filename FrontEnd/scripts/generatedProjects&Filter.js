@@ -128,18 +128,18 @@ async function displayCardProject() {
     const filterContainer = document.querySelector(".filterContainer");
 
     //Pour chaque éléments récupéré de l'API on...
-    categories.forEach(category => {
+    categories.forEach(categorie => {
         //Crée une nouvelle balise "p"
         const newFilter = document.createElement("p");
         //On luit ajoute la classe css 
         newFilter.classList.add("filterElement");
         //On inject la valeur de ".name" comme contenue de la balise
-        newFilter.innerHTML = category.name;
+        newFilter.innerHTML = categorie.name;
 
         //On écoute le filtre et au click...
         newFilter.addEventListener("click", async () => {
             //On lance la fonction avec comme paramètre la valeur de id contenue dans la section "categories" de l'API
-            displayProjectsByCategory(category.id);
+            displayProjectsByCategory(categorie.id);
             //On lance la fonction qui retire la couleur des filtres
             removeFilterElementActive();
             //On ajoute la classe css qui met la couleur (vert) au filtre
